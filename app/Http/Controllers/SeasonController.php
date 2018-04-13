@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Season;
 use Illuminate\Http\Request;
 
 class SeasonController extends Controller
