@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Season;
 use Illuminate\Http\Request;
+use App\Http\Resources\SeasonResource;
 
 class SeasonController extends Controller
 {
@@ -10,8 +11,8 @@ class SeasonController extends Controller
 
     public function index()
     {
-        $season = Season::all();
-        return new SeasonResource($season);
+        $seasons = Season::with('serie', 'episodes')->get();
+        return new SeasonResource($seasons);
     }
 
     /**
@@ -51,7 +52,7 @@ class SeasonController extends Controller
      */
     public function show($id)
     {
-        $season = Season::findOrFail($id);
+        $season = $seasons = Season::with('serie', 'episodes')->get()->find($id);
         return new SeasonResource($season);
     }
 

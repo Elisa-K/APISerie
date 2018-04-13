@@ -26,4 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+	public function series()
+	{
+		return $this->belongsToMany(Serie::class);
+	}
+	public function seasons()
+	{
+		return $this->belongsToMany(Season::class);
+	}
+	public function episodes()
+	{
+		return $this->belongsToMany(Episode::class);
+	}
 }

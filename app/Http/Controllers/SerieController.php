@@ -26,7 +26,7 @@ class SerieController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required|string',
@@ -57,7 +57,8 @@ class SerieController extends Controller
      */
     public function show($id)
     {
-        $serie = Serie::findOrFail($id);
+
+        $serie = Serie ::with('seasons','seasons.episodes')->get()->find($id);
         return new SerieResource($serie);
     }
 

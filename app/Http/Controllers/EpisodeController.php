@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Resources\EpisodeResource;
 use App\Episode;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class EpisodeController extends Controller
 
     public function index()
     {
-        $episode = Episode::all();
+        $episode = Episode::with('season','season.serie')->get();
         return new EpisodeResource($episode);
     }
 
@@ -52,7 +52,7 @@ class EpisodeController extends Controller
      */
     public function show($id)
     {
-        $episode = Episode::findOrFail($id);
+        $episode = Episode::with('season','season.serie')->get()->find($id);
         return new EpisodeResource($episode);
     }
 
