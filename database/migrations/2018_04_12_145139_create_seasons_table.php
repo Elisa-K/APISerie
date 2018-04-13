@@ -16,6 +16,7 @@ class CreateSeasonsTable extends Migration
         Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer( 'episode_number');
+            $table->integer('number');
             $table->integer('serie_id');
 	        $table->foreign('serie_id')->references('id')->on('series')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class SeasonController extends Controller
 {
 
+
     public function index()
     {
         $season = Season::all();
@@ -89,4 +90,5 @@ class SeasonController extends Controller
         $season->seasons()->delete();
         $season->delete();
     }
+
 }

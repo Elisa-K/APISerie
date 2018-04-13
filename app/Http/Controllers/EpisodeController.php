@@ -90,4 +90,5 @@ class EpisodeController extends Controller
 
         $episode->delete();
     }
+
 }
