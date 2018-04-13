@@ -16,7 +16,7 @@ class SerieController extends Controller
      */
     public function index()
     {
-        $serie = Serie::all();
+        $serie = Serie::with('seasons','seasons.episodes')->get();
         return new SerieResource($serie);
     }
 
