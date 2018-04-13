@@ -14,14 +14,3 @@
 
 Route::get('/series', 'SerieController@index')->name('SerieAll');
 
-Route::group(array(
-    'prefix' => 'v1',
-    'middleware' => 'api'
-),function ()
-{
-    Route::apiResources([
-        'series' => 'SerieController',
-        'seasons' => 'SeasonController',
-        'episodes' => 'EpisodeController'
-    ]);
-});
