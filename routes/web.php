@@ -13,3 +13,4 @@
 
 
 Route::get('/series', 'SerieController@index')->name('SerieAll');
+
